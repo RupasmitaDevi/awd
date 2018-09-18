@@ -23,7 +23,7 @@ Follow the below steps
 
 ### Installation Verification
 
-        Execute
+Execute
 ```bash
 awd --version
 ```
