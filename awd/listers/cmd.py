@@ -12,17 +12,17 @@ def lister():
 @click.command(name="sg")
 @click.option('-s', help="security group id")
 def list_sg(s):
-    listr: BaseLister = get_lister('sg')(s)
+    lstr_cls = get_lister('sg')
+    listr: BaseLister = lstr_cls(s)
     listr.execute()
 
 
 @click.command(name="ec2")
-@click.option('-ec2', help="ec2 instance id")
-def list_ec2(s):
-    pass
-
+def list_ec2():
+    lstr_cls = get_lister('ec2')
+    listr: BaseLister = lstr_cls()
+    listr.execute()
 
 
 lister.add_command(list_sg)
 lister.add_command(list_ec2)
-
